@@ -45,10 +45,12 @@ void ascii_art_display_program_autogeneration(void) {
 	printf("#include <stdio.h>\n");
 	printf("int main(void)\n");
 	printf("{\n");
+
+
 	
 
 	printf("\treturn 0;\n");
-	printf("}");
+	printf("}\n");
 
 }
 

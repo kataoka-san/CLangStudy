@@ -23,18 +23,77 @@ void text_input_game();
 void total_and_average_of_30();
 void count_indefinite_of_total_and_average();
 void ascii_art_display_program_autogeneration();
-
+void double_loop_and_shape_display();
 
 int main(void) {
 	//getchar_and_putchar();
 	//text_input_game();
 	//total_and_average_of_30();
 	//count_indefinite_of_total_and_average();
-	ascii_art_display_program_autogeneration();
-
+	//ascii_art_display_program_autogeneration();
+	double_loop_and_shape_display();
 	return 0;
 }
 
+//----------------------------------
+//C言語基礎4.6 二重ループと図形表示 | 
+//----------------------------------
+void double_loop_and_shape_display(void) {
+
+
+	//三角旗の表示
+	for (int i = 1; i <= 4; i++) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+	for (int i = 3; i > 0; i--) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+
+		}
+		printf("\n");
+	}
+
+
+	/*
+	//逆三角形の表示
+	for (int i = 4; i > 0; i--) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+
+		}
+		printf("\n");
+	}
+	*/
+
+	/*
+	//三角形の表示
+	for (int i = 1; i <= 4; i++) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	*/
+
+	/*
+	//四角形の表示
+	for (int i = 1; i <= 4; i++) {
+		for (int j = 1; j <= 4; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+	*/
+}
+
+
+
+
+//未完成
 //----------------------------------------------------
 //C言語基礎51《練習問題18》AA表示プログラムの自動生成 | 
 //----------------------------------------------------

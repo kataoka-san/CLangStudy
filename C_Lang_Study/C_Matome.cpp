@@ -1,14 +1,4 @@
-/*
-CŒ¾Œê‚Ì—ûK
-
-
-
-
-*/
-
-
-
-
+//CŒ¾Œê‚Ì—ûK
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -24,6 +14,7 @@ void total_and_average_of_30();
 void count_indefinite_of_total_and_average();
 void ascii_art_display_program_autogeneration();
 void double_loop_and_shape_display();
+void shape_display_program();
 
 int main(void) {
 	//getchar_and_putchar();
@@ -31,9 +22,86 @@ int main(void) {
 	//total_and_average_of_30();
 	//count_indefinite_of_total_and_average();
 	//ascii_art_display_program_autogeneration();
-	double_loop_and_shape_display();
+	//double_loop_and_shape_display();
+	shape_display_program();
+
 	return 0;
 }
+
+//--------------------------------------------
+//CŒ¾ŒêŠî‘b53s—ûK–â‘è19t}Œ`•\¦ƒvƒƒOƒ‰ƒ€ | 
+//--------------------------------------------
+void shape_display_program(void) {
+
+	int x;
+	int c;
+
+	while (true) {
+		printf("}Œ`‚Ì‘å‚«‚³‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢(2`10):");
+		rewind(stdin);
+		(void)scanf("%d", &x);
+
+		if (x >= 2 && x <= 10) {
+
+			printf("\nlŠpŒ`\n");
+			for (int i = 1; i <= x; i++) {
+				for (int j = 1; j <= x; j++) {
+					printf("* ");
+				}
+				printf("\n");
+			}
+
+			printf("\nOŠpŒ`\n");
+			for (int i = 1; i <= x; i++) {
+				for (int j = 1; j <= i; j++) {
+					printf("* ");
+				}
+
+				printf("\n");
+			}
+
+			printf("\n‹tOŠpŒ`\n");
+			for (int i = x; i > 0; i--) {
+				for (int j = 1; j <= i; j++) {
+					printf("* ");
+				}
+				printf("\n");
+			}
+
+			printf("\nOŠpŠø\n");
+			for (int i = 1; i <= x; i++) {
+				for (int j = 1; j <= i; j++) {
+					printf("* ");
+				}
+				printf("\n");
+			}
+
+			for (int i = x - 1; i > 0; i--) {
+				for (int j = 1; j <= i; j++) {
+					printf("* ");
+				}
+				printf("\n");
+			}
+
+			printf("‚à‚¤ˆê“xƒ`ƒƒƒŒƒ“ƒW‚µ‚Ü‚·‚©H(y:‚·‚éAyˆÈŠOF‚µ‚È‚¢);");
+			rewind(stdin);
+			c = getchar();
+			if (c == 'y') {
+				x = 0;
+				system("cls");
+				continue;
+			}
+			else {
+				printf("I—¹");
+				break;
+			}
+		}
+	}
+	
+
+	
+}
+
 
 //----------------------------------
 //CŒ¾ŒêŠî‘b4.6 “ñdƒ‹[ƒv‚Æ}Œ`•\¦ | 
@@ -99,7 +167,7 @@ void double_loop_and_shape_display(void) {
 //----------------------------------------------------
 void ascii_art_display_program_autogeneration(void) {
 
-	int c;
+	
 
 	printf("#include <stdio.h>\n");
 	printf("int main(void)\n");
@@ -152,9 +220,9 @@ void count_indefinite_of_total_and_average(void) {
 }
 
 
-//----------------------------------------------
-// CŒ¾ŒêŠî‘b49 <—ûK–â‘è16> 30ŒÂ‚Ì‡Œv‚Æ•½‹Ï
-//----------------------------------------------
+//-------------------------------------------
+// CŒ¾ŒêŠî‘b49 <—ûK–â‘è16> 30ŒÂ‚Ì‡Œv‚Æ•½‹Ï |
+//-------------------------------------------
 void total_and_average_of_30(void) {
 
 	//“ü—Í—p
@@ -187,9 +255,9 @@ void total_and_average_of_30(void) {
 }
 
 
-//--------------------------------------------
-// CŒ¾ŒêŠî‘b47 <—ûK–â‘è15> •¶š“ü—ÍƒQ[ƒ€
-//--------------------------------------------
+//-----------------------------------------
+// CŒ¾ŒêŠî‘b47 <—ûK–â‘è15> •¶š“ü—ÍƒQ[ƒ€ |
+//-----------------------------------------
 void text_input_game(void) {
 	/*
 		“Á’è‚Ì”ÍˆÍ‚Ìƒ‰ƒ“ƒ_ƒ€’l‚ğ‹‚ß‚éŒö®
@@ -265,9 +333,9 @@ void text_input_game(void) {
 }
 
 
-//------------------------------------------------
-// CŒ¾ŒêŠî‘b46 <—ûK–â‘è14> getchar‚Æputchar‚Ì—ûK
-//------------------------------------------------
+//-------------------------------------------------
+// CŒ¾ŒêŠî‘b46 <—ûK–â‘è14> getchar‚Æputchar‚Ì—ûK |
+//-------------------------------------------------
 void getchar_and_putchar(void) {
 
 	int c;

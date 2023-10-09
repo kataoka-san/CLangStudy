@@ -8,6 +8,10 @@
 
 //関数プロトタイプ宣言
 
+int select_program_display(void);
+void switch_program(int c);
+
+
 void getchar_and_putchar();
 void text_input_game();
 void total_and_average_of_30();
@@ -35,50 +39,112 @@ void print_diamond(int n);
 void print_hexagon(int n);
 void print_octagon(int n);
 
+//C言語基礎5.4 エスケープシーケンス(色を付ける)
+void escape_sequence_put_color(void);
+
+
+
 int main(void) {
 
-
-	switch (5) {
-	case 46:
-		getchar_and_putchar();
-		break;
-	case 47:
-		text_input_game();
-		break;
-	case 49:
-		total_and_average_of_30();
-		break;
-	case 50:
-		count_indefinite_of_total_and_average();
-		break;
-	case 51:
-		ascii_art_display_program_autogeneration();
-		break;
-	case 4:
-		double_loop_and_shape_display();
-		break;
-	case 532:
-		my_shape_display_program();
-		break;
-	case 53:
-		shape_display_program();
-		break;
-	case 55:
-		shape_display_functionalization();
-		break;
-	case 5:
-		diamond_type_hexagon_octagon();
-		break;
-	default:
-		break;
-	}
+	
+	switch_program(select_program_display());
+	
 
 	return 0;
 }
 
-//--------------------------------------
-//case 5 C言語基礎5.2 ダイヤ形・六角形・八角形 | 
-//--------------------------------------
+int select_program_display(void) {
+
+	int input;
+
+	printf("1: C言語基礎46 <練習問題14> getcharとputcharの練習\n");
+	printf("2: C言語基礎47 <練習問題15> 文字入力ゲーム\n");
+	printf("3: C言語基礎49 <練習問題16> 30個の合計と平均\n");
+	printf("4: C言語基礎50 <練習問題17> 個数不定の合計と平均\n");
+	printf("5: C言語基礎51《練習問題18》AA表示プログラムの自動生成\n");
+	printf("6: C言語基礎4.6 二重ループと図形表示\n");
+	printf("7: MY C言語基礎53《練習問題19》図形表示プログラム\n");
+	printf("8: C言語基礎53《練習問題19》図形表示プログラム\n");
+	printf("9: C言語基礎55《練習問題20》図形表示の関数化\n");
+	printf("10: C言語基礎5.2 ダイヤ形・六角形・八角形\n");
+	printf("11: C言語基礎5.4 エスケープシーケンス(色を付ける)\n");
+	printf("12: \n");
+
+	printf("実行するプログラムを番号で入力してください\n");
+	rewind(stdin);
+	(void)scanf("%d", &input);
+
+
+	return input;
+}
+
+void switch_program(int c) {
+
+	system("cls");
+
+
+	switch (c) {
+
+	case 1:
+		getchar_and_putchar();
+		break;
+	case 2:
+		text_input_game();
+		break;
+	case 3:
+		total_and_average_of_30();
+		break;
+	case 4:
+		count_indefinite_of_total_and_average();
+		break;
+	case 5:
+		ascii_art_display_program_autogeneration();
+		break;
+	case 6:
+		double_loop_and_shape_display();
+		break;
+	case 7:
+		my_shape_display_program();
+		break;
+	case 8:
+		shape_display_program();
+		break;
+	case 9:
+		shape_display_functionalization();
+		break;
+	case 10:
+		diamond_type_hexagon_octagon();
+		break;
+	case 11:
+		escape_sequence_put_color();
+		break;
+	default:
+		main();
+		break;
+	}
+	return;
+}
+
+//------------------------------------------------------
+// case 11 C言語基礎5.4 エスケープシーケンス(色を付ける)|
+//------------------------------------------------------
+void escape_sequence_put_color(void) {
+
+	for (int color = 30; color <= 37; color++) {
+
+		for (int i = 1; i <= 3; i++) {
+
+			printf("\033[%dm", color);
+			printf("12345678901234567890\n");
+		}
+	}
+	return;
+}
+
+//---------------------------------------------
+//case 10 C言語基礎5.2 ダイヤ形・六角形・八角形| 
+//                 始まり                      | 
+//---------------------------------------------
 void diamond_type_hexagon_octagon(void) {
 
 	int size;
@@ -158,10 +224,15 @@ void print_octagon(int n) {
 	return;
 }
 
-//------------------------------------------
-//C言語基礎55《練習問題20》図形表示の関数化 |
-//              始まり                      |
-//------------------------------------------
+//----------------------------------
+//ダイヤ、六角形、八角形のベース表示|
+//             終わり               |
+//----------------------------------
+
+//--------------------------------------------------
+// case 9 C言語基礎55《練習問題20》図形表示の関数化 |
+//              始まり                              |
+//--------------------------------------------------
 int shape_display_functionalization(void) {
 
 	int size;
@@ -271,15 +342,15 @@ void print_triangle_flag(int n) {
 	print_triangle_reverse(n - 1);
 	return;
 }
-//------------------------------------------
-//C言語基礎55《練習問題20》図形表示の関数化 |
-//              終わり                      |
-//------------------------------------------
+//--------------------------------------------------
+//        C言語基礎55《練習問題20》図形表示の関数化 |
+//                終わり                            |
+//--------------------------------------------------
 
 
-//--------------------------------------------
-//C言語基礎53《練習問題19》図形表示プログラム | 
-//--------------------------------------------
+//----------------------------------------------------
+// case 8 C言語基礎53《練習問題19》図形表示プログラム | 
+//----------------------------------------------------
 void shape_display_program(void) {
 
 	//図形の大きさ用
@@ -350,7 +421,7 @@ void shape_display_program(void) {
 	(void)getchar();
 }
 
-	
+// case 7
 void my_shape_display_program(void) {
 
 	int x;
@@ -426,9 +497,9 @@ void my_shape_display_program(void) {
 }
 
 
-//----------------------------------
-//C言語基礎4.6 二重ループと図形表示 | 
-//----------------------------------
+//------------------------------------------
+// case 6 C言語基礎4.6 二重ループと図形表示 | 
+//------------------------------------------
 void double_loop_and_shape_display(void) {
 
 
@@ -485,9 +556,9 @@ void double_loop_and_shape_display(void) {
 
 
 //未完成
-//----------------------------------------------------
-//C言語基礎51《練習問題18》AA表示プログラムの自動生成 | 
-//----------------------------------------------------
+//------------------------------------------------------------
+// case 5 C言語基礎51《練習問題18》AA表示プログラムの自動生成 | 
+//------------------------------------------------------------
 void ascii_art_display_program_autogeneration(void) {
 
 	
@@ -508,9 +579,9 @@ void ascii_art_display_program_autogeneration(void) {
 
 
 
-//-----------------------------------------------
-//C言語基礎50 <練習問題17> 個数不定の合計と平均  |
-//-----------------------------------------------
+//-------------------------------------------------------
+// case 4 C言語基礎50 <練習問題17> 個数不定の合計と平均  |
+//-------------------------------------------------------
 void count_indefinite_of_total_and_average(void) {
 
 
@@ -543,9 +614,9 @@ void count_indefinite_of_total_and_average(void) {
 }
 
 
-//-------------------------------------------
-// C言語基礎49 <練習問題16> 30個の合計と平均 |
-//-------------------------------------------
+//--------------------------------------------------
+// case 3 C言語基礎49 <練習問題16> 30個の合計と平均 |
+//--------------------------------------------------
 void total_and_average_of_30(void) {
 
 	//入力用
@@ -578,9 +649,9 @@ void total_and_average_of_30(void) {
 }
 
 
-//-----------------------------------------
-// C言語基礎47 <練習問題15> 文字入力ゲーム |
-//-----------------------------------------
+//------------------------------------------------
+// case 2 C言語基礎47 <練習問題15> 文字入力ゲーム |
+//------------------------------------------------
 void text_input_game(void) {
 	/*
 		特定の範囲のランダム値を求める公式
@@ -656,9 +727,9 @@ void text_input_game(void) {
 }
 
 
-//-------------------------------------------------
-// C言語基礎46 <練習問題14> getcharとputcharの練習 |
-//-------------------------------------------------
+//--------------------------------------------------------
+// case 1 C言語基礎46 <練習問題14> getcharとputcharの練習 |
+//--------------------------------------------------------
 void getchar_and_putchar(void) {
 
 	int c;

@@ -17,6 +17,16 @@ void double_loop_and_shape_display();
 void my_shape_display_program();
 void shape_display_program();
 
+//図形表示の関数化用関数
+void shape_display_functionalization(void);
+int input_size(int min, int max);
+void print_line(int n);
+void print_square(int n);
+void print_triangle_normal(int n);
+void print_triangle_reverse(int n);
+void print_triangle_flag(int n);
+void wait_enter(void);
+
 int main(void) {
 	//getchar_and_putchar();
 	//text_input_game();
@@ -25,10 +35,130 @@ int main(void) {
 	//ascii_art_display_program_autogeneration();
 	//double_loop_and_shape_display();
 	//my_shape_display_program();
-	shape_display_program();
+	shape_display_functionalization();
 
 	return 0;
 }
+
+//------------------------------------------
+//C言語基礎55《練習問題20》図形表示の関数化 |
+//              始まり                      |
+//------------------------------------------
+
+void shape_display_functionalization(void) {
+
+	int size;
+
+	size = input_size(2, 10);
+
+	printf("四角形\n");
+	print_square(size);
+	wait_enter();
+
+	printf("\n三角形\n");
+	print_triangle_normal(size);
+	wait_enter();
+
+	printf("\n逆三角形\n");
+	print_triangle_reverse(size);
+	wait_enter();
+
+	printf("\n三角旗\n");
+	print_triangle_flag(size);
+	wait_enter();
+
+
+	return;
+
+}
+
+//--------
+//入力処理|
+//--------
+int input_size(int min, int max) {
+
+	int size;
+
+	while (true) {
+		printf("図形の大きさを入力してください(%d～%d) :",min, max);
+
+		rewind(stdin);
+		(void)scanf("%d", &size);
+
+		if (size >= min && size <= max) {
+			break;
+		}
+
+		printf("入力に誤りがあります\n");
+	}
+	printf("\n");
+	return size;
+}
+//---------
+//改行待ち |
+//---------
+void wait_enter(void) {
+	rewind(stdin);
+	(void)getchar();
+	return;
+}
+
+//--------
+//1行表示 |
+//--------
+void print_line(int n) {
+
+	for (int j = 1; j <= n; j++) {
+		printf("* ");
+	}
+	printf("\n");
+	return;
+}
+//-----------
+//四角形表示 |
+//-----------
+void print_square(int n) {
+
+	for (int i = 1; i <= n; i++) {
+		print_line(n);
+	}
+	return;
+}
+//-----------
+//三角形表示 |
+//-----------
+void print_triangle_normal(int n) {
+
+	for (int i = 1; i <= n; i++) {
+		print_line(i);
+	}
+	return;
+}
+//-------------
+//逆三角形表示 |
+//-------------
+void print_triangle_reverse(int n) {
+
+	for (int i = n; i > 0; i--) {
+		print_line(i);
+	}
+	return;
+
+}
+//-----------
+//三角旗表示 |
+//-----------
+void print_triangle_flag(int n) {
+
+	print_triangle_normal(n);
+	print_triangle_reverse(n - 1);
+	return;
+}
+//------------------------------------------
+//C言語基礎55《練習問題20》図形表示の関数化 |
+//              終わり                      |
+//------------------------------------------
+
 
 //--------------------------------------------
 //C言語基礎53《練習問題19》図形表示プログラム | 
@@ -104,8 +234,6 @@ void shape_display_program(void) {
 }
 
 	
-
-
 void my_shape_display_program(void) {
 
 	int x;

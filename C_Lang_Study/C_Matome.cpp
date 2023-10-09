@@ -18,7 +18,7 @@ void my_shape_display_program();
 void shape_display_program();
 
 //図形表示の関数化用関数
-void shape_display_functionalization(void);
+int shape_display_functionalization(void);
 int input_size(int min, int max);
 void print_line(int n);
 void print_square(int n);
@@ -27,10 +27,18 @@ void print_triangle_reverse(int n);
 void print_triangle_flag(int n);
 void wait_enter(void);
 
+//C言語基礎5.2 ダイヤ形・六角形・八角形
+void diamond_type_hexagon_octagon(void);
+void print_space(int n);
+void print_dia_hex_oct_base(int n, int w, int h);
+void print_diamond(int n);
+void print_hexagon(int n);
+void print_octagon(int n);
+
 int main(void) {
 
 
-	switch (55) {
+	switch (5) {
 	case 46:
 		getchar_and_putchar();
 		break;
@@ -58,6 +66,9 @@ int main(void) {
 	case 55:
 		shape_display_functionalization();
 		break;
+	case 5:
+		diamond_type_hexagon_octagon();
+		break;
 	default:
 		break;
 	}
@@ -65,16 +76,97 @@ int main(void) {
 	return 0;
 }
 
+//--------------------------------------
+//case 5 C言語基礎5.2 ダイヤ形・六角形・八角形 | 
+//--------------------------------------
+void diamond_type_hexagon_octagon(void) {
+
+	int size;
+
+	size = shape_display_functionalization();
+
+	
+
+	printf("ダイヤ形\n");
+	print_diamond(size);
+	wait_enter();
+
+	printf("六角形\n");
+	print_hexagon(size);
+	wait_enter();
+
+	printf("八角形\n");
+	print_octagon(size);
+	wait_enter();
+
+	return;
+}
+
+//------------
+//スペース表示|
+//------------
+void print_space(int n) {
+
+	for (int j = 1; j <= n; j++) {
+		printf("  ");
+	}
+	return;
+}
+//----------------------------------
+//ダイヤ、六角形、八角形のベース表示|
+//----------------------------------
+void print_dia_hex_oct_base(int n, int w, int h) {
+
+	//上半分
+	for (int i = n - 1, j = 1; i > 0; i--, j += 2) {
+		print_space(i);
+		print_line(j + w);
+	}
+	//真ん中
+	for (int i = 1; i <= h; i++) {
+		print_line((n * 3) - 2);
+	}
+	//下半分
+	for (int i = 0, j = n * 2 - 1; i < n; i++, j -= 2) {
+		print_space(i);
+		print_line(j + w);
+	}
+	return;
+}
+//----------
+//ダイヤ表示|
+//----------
+void print_diamond(int n) {
+
+	print_dia_hex_oct_base(n, 0, 0);
+	return;
+}
+//----------
+//六角形表示|
+//----------
+void print_hexagon(int n) {
+
+	print_dia_hex_oct_base(n, n - 1, 0);
+	return;
+}
+//----------
+//八角形表示|
+//----------
+void print_octagon(int n) {
+
+	print_dia_hex_oct_base(n, n - 1, n - 1);
+	return;
+}
+
 //------------------------------------------
 //C言語基礎55《練習問題20》図形表示の関数化 |
 //              始まり                      |
 //------------------------------------------
-
-void shape_display_functionalization(void) {
+int shape_display_functionalization(void) {
 
 	int size;
 
-	size = input_size(2, 10);
+	size = input_size(2, 8);
 
 	printf("四角形\n");
 	print_square(size);
@@ -93,7 +185,7 @@ void shape_display_functionalization(void) {
 	wait_enter();
 
 
-	return;
+	return size;
 
 }
 

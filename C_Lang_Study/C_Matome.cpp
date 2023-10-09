@@ -14,6 +14,7 @@ void total_and_average_of_30();
 void count_indefinite_of_total_and_average();
 void ascii_art_display_program_autogeneration();
 void double_loop_and_shape_display();
+void my_shape_display_program();
 void shape_display_program();
 
 int main(void) {
@@ -23,6 +24,7 @@ int main(void) {
 	//count_indefinite_of_total_and_average();
 	//ascii_art_display_program_autogeneration();
 	//double_loop_and_shape_display();
+	//my_shape_display_program();
 	shape_display_program();
 
 	return 0;
@@ -32,6 +34,79 @@ int main(void) {
 //CŒ¾ŒêŠî‘b53s—ûK–â‘è19t}Œ`•\Ž¦ƒvƒƒOƒ‰ƒ€ | 
 //--------------------------------------------
 void shape_display_program(void) {
+
+	//}Œ`‚Ì‘å‚«‚³—p
+	int size;
+
+	//-----------------------------------------------
+	//                “ü—Íˆ—
+	//-----------------------------------------------
+	while (true) {
+		printf("}Œ`‚Ì‘å‚«‚³‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢(2`10) :");
+
+		rewind(stdin);
+		(void)scanf("%d", &size);
+
+		if (size >= 2 && size <= 10) {
+			break;
+		}
+
+		printf("“ü—Í‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·\n");
+	}
+
+	printf("\n");
+
+	//-----------------------------------------------
+	//                }Œ`•\Ž¦ˆ—
+	//-----------------------------------------------
+	printf("\nŽlŠpŒ`\n");
+	for (int i = 1; i <= size; i++) {
+		for (int j = 1; j <= size; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+	printf("\nŽOŠpŒ`\n");
+	for (int i = 1; i <= size; i++) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+
+		printf("\n");
+	}
+
+	printf("\n‹tŽOŠpŒ`\n");
+	for (int i = size; i > 0; i--) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+	printf("\nŽOŠpŠø\n");
+	for (int i = 1; i <= size; i++) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+	for (int i = size - 1; i > 0; i--) {
+		for (int j = 1; j <= i; j++) {
+			printf("* ");
+		}
+		printf("\n");
+	}
+
+	rewind(stdin);
+	(void)getchar();
+}
+
+	
+
+
+void my_shape_display_program(void) {
 
 	int x;
 	int c;
@@ -95,6 +170,9 @@ void shape_display_program(void) {
 				printf("I—¹");
 				break;
 			}
+		}
+		else {
+			printf("“ü—Í‚ÉŒë‚è‚ª‚ ‚è‚Ü‚·\n");
 		}
 	}
 	

@@ -28,14 +28,39 @@ void print_triangle_flag(int n);
 void wait_enter(void);
 
 int main(void) {
-	//getchar_and_putchar();
-	//text_input_game();
-	//total_and_average_of_30();
-	//count_indefinite_of_total_and_average();
-	//ascii_art_display_program_autogeneration();
-	//double_loop_and_shape_display();
-	//my_shape_display_program();
-	shape_display_functionalization();
+
+
+	switch (55) {
+	case 46:
+		getchar_and_putchar();
+		break;
+	case 47:
+		text_input_game();
+		break;
+	case 49:
+		total_and_average_of_30();
+		break;
+	case 50:
+		count_indefinite_of_total_and_average();
+		break;
+	case 51:
+		ascii_art_display_program_autogeneration();
+		break;
+	case 4:
+		double_loop_and_shape_display();
+		break;
+	case 532:
+		my_shape_display_program();
+		break;
+	case 53:
+		shape_display_program();
+		break;
+	case 55:
+		shape_display_functionalization();
+		break;
+	default:
+		break;
+	}
 
 	return 0;
 }
@@ -55,15 +80,15 @@ void shape_display_functionalization(void) {
 	print_square(size);
 	wait_enter();
 
-	printf("\nOŠpŒ`\n");
+	printf("OŠpŒ`\n");
 	print_triangle_normal(size);
 	wait_enter();
 
-	printf("\n‹tOŠpŒ`\n");
+	printf("‹tOŠpŒ`\n");
 	print_triangle_reverse(size);
 	wait_enter();
 
-	printf("\nOŠpŠø\n");
+	printf("OŠpŠø\n");
 	print_triangle_flag(size);
 	wait_enter();
 

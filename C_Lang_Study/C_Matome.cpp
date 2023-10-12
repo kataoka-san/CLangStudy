@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <Windows.h>
 
 
 //関数プロトタイプ宣言
@@ -46,7 +47,6 @@ void escape_sequence_put_color(void);
 
 int main(void) {
 
-	
 	switch_program(select_program_display());
 	
 
@@ -125,19 +125,72 @@ void switch_program(int c) {
 	return;
 }
 
+
+
+
+
 //------------------------------------------------------
 // case 11 C言語基礎5.4 エスケープシーケンス(色を付ける)|
 //------------------------------------------------------
 void escape_sequence_put_color(void) {
 
+	int x, y;
+
+	x = y = 1;
 	for (int color = 30; color <= 37; color++) {
 
 		for (int i = 1; i <= 3; i++) {
 
+			printf("\033[%d;%dH", y++, x);
 			printf("\033[%dm", color);
-			printf("12345678901234567890\n");
+			printf("12345678901234567890");
 		}
 	}
+	x = 21;
+	y = 1;
+	for (int color = 90; color <= 97; color++) {
+
+		for (int i = 1; i <= 3; i++) {
+
+			printf("\033[%d;%dH", y++, x);
+			printf("\033[%dm", color);
+			printf("12345678901234567890");
+		}
+	}
+	x = 41;
+	y = 1;
+	for (int color = 40; color <= 47; color++) {
+
+		for (int i = 1; i <= 3; i++) {
+
+			printf("\033[%d;%dH", y++, x);
+			printf("\033[%dm", color);
+			printf("12345678901234567890");
+		}
+	}
+	x = 61;
+	y = 1;
+	for (int color = 100; color <= 107; color++) {
+
+		for (int i = 1; i <= 3; i++) {
+
+			printf("\033[%d;%dH", y++, x);
+			printf("\033[%dm", color);
+			printf("12345678901234567890");
+		}
+	}
+	printf("\033[%dm", 0);
+	wait_enter();
+
+	printf("\033[%d;%dH", 25, 1);
+	printf("スクロールアップ\n");
+
+	for (int i = 1; i <= 24; i++) {
+		printf("\033[%dS", 1);
+		Sleep(100);
+	}
+
+	wait_enter();
 	return;
 }
 

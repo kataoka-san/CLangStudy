@@ -43,6 +43,34 @@ void print_octagon(int n);
 //C言語基礎5.4 エスケープシーケンス(色を付ける)
 void escape_sequence_put_color(void);
 
+//C言語基礎5.5 マクロ定義(色付けを簡単にする)
+void macro_definition_simplify_coloring(void);
+void print_chars(int n, char c);
+void set_text_color(int color);
+void set_cursor_pos(int x, int y);
+
+//マクロ定義
+#define CURSOR_ERASE	printf("\033[?25l")
+#define CURSOR_DISPLAY	printf("\033[?25h")
+#define COLOR_RESET		printf("\033[0m")
+
+//マクロ定義カラー
+#define BLACK			0
+#define DARK_RED		1
+#define DARK_GREEN		2
+#define DARK_YELLOW		3
+#define DARK_BLUE		4
+#define DARK_MAGENTA	5
+#define DARK_CYAN		6
+#define LIGHT_GRAY		7
+#define DARK_GRAY		8
+#define LIGHT_RED		9
+#define LIGHT_GREEN		10
+#define LIGHT_YELLOW	11
+#define LIGHT_BLUE		12
+#define LIGHT_MAGENTA	13
+#define LIGHT_CYAN		14
+#define LIGHT_WHITE		15
 
 
 int main(void) {
@@ -68,7 +96,7 @@ int select_program_display(void) {
 	printf("9: C言語基礎55《練習問題20》図形表示の関数化\n");
 	printf("10: C言語基礎5.2 ダイヤ形・六角形・八角形\n");
 	printf("11: C言語基礎5.4 エスケープシーケンス(色を付ける)\n");
-	printf("12: \n");
+	printf("12: C言語基礎5.5 マクロ定義(色付けを簡単にする)\n");
 
 	printf("実行するプログラムを番号で入力してください\n");
 	rewind(stdin);
@@ -118,6 +146,9 @@ void switch_program(int c) {
 	case 11:
 		escape_sequence_put_color();
 		break;
+	case 12:
+		macro_definition_simplify_coloring();
+		break;
 	default:
 		main();
 		break;
@@ -125,8 +156,75 @@ void switch_program(int c) {
 	return;
 }
 
+//----------------------------------------------------
+// case 12 C言語基礎5.5 マクロ定義(色付けを簡単にする)|
+//----------------------------------------------------
+void macro_definition_simplify_coloring(void) {
+	
+	int size = 4, y = 1;
 
+	CURSOR_ERASE;
+	for (int step = 1; step <= 6; step++) {
 
+		if (step % 2 == 0) {
+			set_text_color(DARK_RED);
+		}
+		else {
+			set_text_color(LIGHT_BLUE);
+		}
+		for (int i = 1; i <= size; i++) {
+			set_cursor_pos(1, y++);
+			print_chars(size, '*');
+		}
+		wait_enter();
+	}
+	COLOR_RESET;
+	CURSOR_DISPLAY;
+	printf("終了");
+
+	wait_enter();
+
+	return;
+
+}
+//---------
+// 文字表示|
+//---------
+void print_chars(int n,char c) {
+
+	for (int j = 1; j <= n; j++) {
+		printf("%c ", c);
+	}
+	return;
+}
+//---------------
+// テキスト色設定|
+//---------------
+void set_text_color(int color) {
+
+	if (color < 0) {
+		color = 30;
+	}
+	else if (color < 8) {
+		color += 30;
+	}
+	else if (color < 16) {
+		color = (color - 8) + 90;
+	}
+	else {
+		color = 97;
+	}
+	printf("\033[%dm", color);
+
+	return;
+}
+//-----------------
+// カーソル位置設定|
+//-----------------
+void set_cursor_pos(int x, int y) {
+
+	printf("\033[%d;%dH", y, x);
+}
 
 
 //------------------------------------------------------

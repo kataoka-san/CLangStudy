@@ -44,10 +44,11 @@ void print_octagon(int n);
 void escape_sequence_put_color(void);
 
 //C言語基礎5.5 マクロ定義(色付けを簡単にする)
-void macro_definition_simplify_coloring(void);
+void macro_definition_simplify_coloring_1(void);
 void print_chars(int n, char c);
 void set_text_color(int color);
 void set_cursor_pos(int x, int y);
+void macro_definition_simplify_coloring_2(void);
 
 //マクロ定義
 #define CURSOR_ERASE	printf("\033[?25l")
@@ -96,7 +97,8 @@ int select_program_display(void) {
 	printf("9: C言語基礎55《練習問題20》図形表示の関数化\n");
 	printf("10: C言語基礎5.2 ダイヤ形・六角形・八角形\n");
 	printf("11: C言語基礎5.4 エスケープシーケンス(色を付ける)\n");
-	printf("12: C言語基礎5.5 マクロ定義(色付けを簡単にする)\n");
+	printf("12: C言語基礎5.5 マクロ定義(色付けを簡単にする 1)\n");
+	printf("13: C言語基礎5.5 マクロ定義(色付けを簡単にする 2)\n");
 
 	printf("実行するプログラムを番号で入力してください\n");
 	rewind(stdin);
@@ -147,7 +149,10 @@ void switch_program(int c) {
 		escape_sequence_put_color();
 		break;
 	case 12:
-		macro_definition_simplify_coloring();
+		macro_definition_simplify_coloring_1();
+		break;
+	case 13:
+		macro_definition_simplify_coloring_2();
 		break;
 	default:
 		main();
@@ -155,11 +160,49 @@ void switch_program(int c) {
 	}
 	return;
 }
+//------------------------------------------------------
+// case 13 C言語基礎5.5 マクロ定義(色付けを簡単にする) 2|
+//------------------------------------------------------
+void macro_definition_simplify_coloring_2(void) {
 
-//----------------------------------------------------
-// case 12 C言語基礎5.5 マクロ定義(色付けを簡単にする)|
-//----------------------------------------------------
-void macro_definition_simplify_coloring(void) {
+	int size = 4, x, y;
+
+	srand((unsigned int)time(NULL));
+
+	CURSOR_ERASE;
+	for (int side = 1; side <= 10; side++) {
+
+		y = 1;
+		x = (side - 1) * size * 2 + 1;
+
+		for (int step = 1; step <= 6; step++) {
+
+			set_text_color(rand() % 15 + 1);
+
+			for (int i = 1; i <= size; i++) {
+				set_cursor_pos(x, y++);
+				print_chars(size, '*');
+			}
+			Sleep(200);
+		}
+	}
+	
+	COLOR_RESET;
+	CURSOR_DISPLAY;
+	set_cursor_pos(1, 25);
+	printf("終了");
+
+	wait_enter();
+
+	return;
+
+}
+
+
+//------------------------------------------------------
+// case 12 C言語基礎5.5 マクロ定義(色付けを簡単にする) 1|
+//------------------------------------------------------
+void macro_definition_simplify_coloring_1(void) {
 	
 	int size = 4, y = 1;
 
